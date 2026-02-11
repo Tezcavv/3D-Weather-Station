@@ -21,3 +21,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   <WeatherTypeName>k__BackingField: Raining
   <Codes>k__BackingField: 33000000350000003700000038000000390000003d0000003f000000410000004200000043000000500000005100000052000000
+  <LightColor>k__BackingField: {r: 0.80827516, g: 0.8322754, b: 0.8898759, a: 1}
+  <LightIntensity>k__BackingField: 0.8
+  <VolumeProfile>k__BackingField: {fileID: 11400000, guid: 9ea990bcb65706a669562d34b00daca9, type: 2}

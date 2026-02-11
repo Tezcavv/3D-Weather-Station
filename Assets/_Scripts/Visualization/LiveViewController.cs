@@ -17,7 +17,7 @@ public class LiveViewController : MonoBehaviour
   private void WeatherService_OnChangeWeatherData(LocationData arg1, WeatherData arg2)
   {
     liveViewCityDisplay.UpdateAndShowCity(arg1).Forget();
-    liveViewWeatherDisplay.UpdateAndShowWeather(arg2);
+    liveViewWeatherDisplay.UpdateAndShowWeather(arg2).Forget();
   }
   private void Start()
   {
@@ -27,7 +27,7 @@ public class LiveViewController : MonoBehaviour
     if (WeatherService.CurrentWeatherData != null)
     {
       liveViewCityDisplay.UpdateAndShowCity(WeatherService.LocationData).Forget();
-      liveViewWeatherDisplay.UpdateAndShowWeather(WeatherService.CurrentWeatherData);
+      liveViewWeatherDisplay.UpdateAndShowWeather(WeatherService.CurrentWeatherData).Forget();
     }
     
     WeatherService.OnChangeWeatherData += WeatherService_OnChangeWeatherData;

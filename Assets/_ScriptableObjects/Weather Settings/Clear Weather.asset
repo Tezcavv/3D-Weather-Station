@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed65ade376493d89ac76356b1dc3ffc, type: 3}
   m_Name: Clear Weather
   m_EditorClassIdentifier: Assembly-CSharp::_Scripts.ScriptableObjects.WeatherCodeData
-  <WeatherData>k__BackingField: 1
+  <WeatherType>k__BackingField: 1
+  particles:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   <WeatherTypeName>k__BackingField: Clear
   <Codes>k__BackingField: 00000000010000000200000003000000
+  <LightColor>k__BackingField: {r: 1, g: 0.94509804, b: 0.8392157, a: 1}
+  <LightIntensity>k__BackingField: 1.23
+  <VolumeProfile>k__BackingField: {fileID: 11400000, guid: 80829312ab8de7cb4bcdd113efdb569f, type: 2}

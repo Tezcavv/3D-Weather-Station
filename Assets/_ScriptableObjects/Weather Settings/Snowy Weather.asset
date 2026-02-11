@@ -21,3 +21,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   <WeatherTypeName>k__BackingField: Snowing
   <Codes>k__BackingField: 47000000490000004b0000004d0000005500000056000000
+  <LightColor>k__BackingField: {r: 0.91764706, g: 0.95686275, b: 1, a: 1}
+  <LightIntensity>k__BackingField: 1
+  <VolumeProfile>k__BackingField: {fileID: 11400000, guid: aecc5bfe2ab639c8aa64814beafbd500, type: 2}
