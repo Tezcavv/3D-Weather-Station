@@ -43,6 +43,7 @@ namespace _Scripts.StateMachine
 
     public void UpdateCurrentState()
     {
+      if(_isTransitioning) return;
       _current?.Update();
     }
   }

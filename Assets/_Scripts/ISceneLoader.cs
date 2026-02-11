@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public interface ISceneLoader
 {
-  UniTask LoadAsync(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive);
+  UniTask LoadAsync(string sceneName);
   UniTask UnloadAsync(string sceneName);
 }
 
 
 public sealed class SceneLoader : ISceneLoader
 {
-  public async UniTask LoadAsync(string sceneName, LoadSceneMode mode = LoadSceneMode.Additive)
+  public async UniTask LoadAsync(string sceneName)
   {
     if (IsSceneLoaded(sceneName))
       return;
 
-    var asyncOperation = SceneManager.LoadSceneAsync(sceneName, mode);
+    var asyncOperation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
     if (asyncOperation == null)
       throw new InvalidOperationException($"LoadSceneAsync failed for scene '{sceneName}'.");
 
