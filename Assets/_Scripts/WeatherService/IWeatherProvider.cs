@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
+using _Scripts.ScriptableObjects;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace _Scripts.WeatherService
@@ -10,11 +13,34 @@ namespace _Scripts.WeatherService
   {
     UniTask<WeatherData> GetWeatherData( LocationData locationData, CancellationToken ct = default);
   }
-
-  public class MockWeatherProvider : IWeatherProvider
+  
+  public enum ProviderType
   {
-    public LocationData LocationData { get; set; }
+    OpenMeteo,
+    Random
+  }
 
+  public class RandomWeatherProvider : IWeatherProvider
+  {
+    private WeatherSamplesContainer _wsc;
+    public RandomWeatherProvider(WeatherSamplesContainer container)
+    {
+      _wsc = container;
+    }
+    public UniTask<WeatherData> GetWeatherData(LocationData locationData, CancellationToken ct = default)
+    {
+      return UniTask.FromResult(_wsc.GetRandomSample().WeatherData);
+    }
+  }
+  
+  // public class SelectedWeatherTypeWeatherProvider : IWeatherProvider
+  // {
+  //  
+  // }
+  
+  public class OpenMeteoWeatherProvider : IWeatherProvider
+  {
+   
     public async UniTask<WeatherData> GetWeatherData(LocationData locationData,
       CancellationToken ct = default)
     {
@@ -22,7 +48,7 @@ namespace _Scripts.WeatherService
         "https://api.open-meteo.com/v1/forecast" +
         $"?latitude={locationData.Latitude}" +
         $"&longitude={locationData.Longitude}" +
-        "&current=temperature_2m,rain,precipitation,showers,snowfall,wind_speed_10m,weather_code" +
+        "&current=temperature_2m,rain,showers,snowfall,wind_speed_10m,weather_code" +
         "&timezone=auto";
 
       using var req = UnityWebRequest.Get(url);
@@ -48,47 +74,41 @@ namespace _Scripts.WeatherService
   [Serializable]
   public class WeatherData
   {
-    [JsonProperty("current_units")] public Units Units { get; set; }
-    [JsonProperty("current")] public CurrentWeather CurrentWeather { get; set; }
+    [field:SerializeField][JsonProperty("current_units")] public Units Units { get; set; }
+    [field:SerializeField][JsonProperty("current")] public CurrentWeather CurrentWeather { get; set; }
   }
 
   [Serializable]
   public class Units
   {
-    [JsonProperty("time")] public string Time { get; set; }
+    [field: SerializeField]
+    [JsonProperty("temperature_2m")]
+    public string Temperature2m { get; set; } = "°C";
 
-    [JsonProperty("interval")] public string Interval { get; set; }
+    [field: SerializeField]
+    [JsonProperty("rain")]
+    public string Rain { get; set; } = "mm";
 
-    [JsonProperty("temperature_2m")] public string Temperature2m { get; set; }
+    [field: SerializeField]
+    [JsonProperty("weather_code")]
+    public string WeatherCode { get; set; } = "wmo";
 
-    [JsonProperty("rain")] public string Rain { get; set; }
+    [field: SerializeField]
+    [JsonProperty("snowfall")]
+    public string Snowfall { get; set; } = "cm";
 
-    [JsonProperty("weather_code")]  public string WeatherCode { get; set; }
-
-    [JsonProperty("showers")] public string Showers { get; set; }
-
-    [JsonProperty("snowfall")] public string Snowfall { get; set; }
-
-    [JsonProperty("wind_speed_10m")] public string WindSpeed10m { get; set; }
+    [field: SerializeField]
+    [JsonProperty("wind_speed_10m")]
+    public string WindSpeed10m { get; set; } = "km/h";
   }
 
   [Serializable]
   public class CurrentWeather
   {
-    //todo add Time based on zone if not already
-    [JsonProperty("time")] public string Time { get; set; }
-
-    //todo meaning of Interval
-    [JsonProperty("interval")] public int Interval { get; set; }
-    [JsonProperty("temperature_2m")] public double Temperature2m { get; set; }
-
-    [JsonProperty("rain")] public double Rain { get; set; }
-
-    [JsonProperty("weather_code")]  public int WeatherCode { get; set; }
-
-    [JsonProperty("showers")] public double Showers { get; set; }
-
-    [JsonProperty("snowfall")] public double Snowfall { get; set; }
-    [JsonProperty("wind_speed_10m")] public double WindSpeed10m { get; set; }
+    [field:SerializeField][JsonProperty("temperature_2m")] public double Temperature2m { get; set; }
+    [field:SerializeField][JsonProperty("rain")] public double Rain { get; set; }
+    [field:SerializeField][JsonProperty("weather_code")]  public int WeatherCode { get; set; }
+    [field:SerializeField][JsonProperty("snowfall")] public double Snowfall { get; set; }
+    [field:SerializeField][JsonProperty("wind_speed_10m")] public double WindSpeed10m { get; set; }
   }
 }

@@ -60,6 +60,11 @@ public class DashboardDataDisplay : MonoBehaviour
     {
       if (WeatherService == null) return;
 
+      if (WeatherService.LocationData != null)
+      {
+        cityTxt.text = WeatherService.LocationData.LocationName;
+      }
+
       if (WeatherService.CurrentWeatherData != null)
       {
         UpdateWeatherData(WeatherService.CurrentWeatherData);

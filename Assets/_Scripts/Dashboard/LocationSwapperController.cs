@@ -5,15 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
-public class DashboardUI : MonoBehaviour
+public class LocationSwapperController : MonoBehaviour
 {
    [SerializeField] public List<LocationButton> locationButtons;
-
-
    
    private void RegisterButtonEvents()
    {
-     
       foreach (var locationButton in locationButtons)
       {
          locationButton.OnClick += (UpdateLocation);

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1a6a6229924dc98f665850eaa20ed4, type: 3}
+  m_Name: _Weather Samples Container
+  m_EditorClassIdentifier: Assembly-CSharp::WeatherSamplesContainer
+  ClearWeatherSamples:
+  - {fileID: 11400000, guid: 2faa99ddd9ac4aaaa85e5381dd467a6c, type: 2}
+  - {fileID: 11400000, guid: 452d3d0ecdec849299ea5e28c473b9ed, type: 2}
+  - {fileID: 11400000, guid: 07830dd07198443d2959f8c7dfe193fc, type: 2}
+  RainyWeatherSamples:
+  - {fileID: 11400000, guid: 493b6aa59e25b553eb9a1fa989eb0d04, type: 2}
+  - {fileID: 11400000, guid: 2c6df24fa0d895ad19d647a39151ef1d, type: 2}
+  - {fileID: 11400000, guid: 08cc287c2cd61dfeea4b408681415545, type: 2}
+  SnowyWeatherSamples:
+  - {fileID: 11400000, guid: e30dbd7225ac022dc94c32a352f41d53, type: 2}
+  - {fileID: 11400000, guid: f11e77e70745e33668e3b49508f8ca4c, type: 2}
+  - {fileID: 11400000, guid: cb58a63164c63f3cb8c8a461b02605fd, type: 2}

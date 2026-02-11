@@ -58,7 +58,6 @@ public class VisualizationViewWeatherDisplay : MonoBehaviour
 
   private async UniTask UpdateParticles( WeatherSettings weatherSettings)
   {
-    //todo check if show or rain or nothing
     if (hasParticleInstance && particleEffectHandle.IsValid())
     {
       Addressables.Release(particleEffectHandle);
