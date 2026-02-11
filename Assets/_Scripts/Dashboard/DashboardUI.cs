@@ -11,12 +11,7 @@ public class DashboardUI : MonoBehaviour
    [SerializeField] public Button changeViewButton;
 
 
-   private StateMachine stateMachine;
-   [Inject]
-   private void Construct(StateMachine stateMachine)
-   {
-      this.stateMachine = stateMachine;
-   }
+  
    
    private void RegisterButtonEvents()
    {
@@ -30,7 +25,7 @@ public class DashboardUI : MonoBehaviour
 
    private async void ChangeState()
    {
-     await stateMachine.ChangeStateAsync<LiveViewState>();
+     // await stateMachine.ChangeStateAsync<LiveViewState>();
    }
 
 

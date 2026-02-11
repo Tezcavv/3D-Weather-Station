@@ -1,4 +1,8 @@
 using Cysharp.Threading.Tasks;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 namespace _Scripts.StateMachine
@@ -9,58 +13,38 @@ namespace _Scripts.StateMachine
     UniTask Exit();
     void Update();
   }
-
-  public class DashboardViewState : IState
+  
+  public class SceneState : IState
   {
-    
-    private ISceneLoader sceneLoader;
+    readonly AssetReference sceneAsset;
+    AsyncOperationHandle<SceneInstance> sceneHandle;
+    bool loaded;
 
-    [Inject]
-    public DashboardViewState(ISceneLoader sceneLoader)
+    public SceneState(AssetReference sceneAsset)
     {
-      this.sceneLoader = sceneLoader;
-    }
-    
-    public async UniTask Enter()
-    {
-      await sceneLoader.LoadAsync("Dashboard View Scene");
+      this.sceneAsset = sceneAsset;
+      loaded = false;
     }
 
-
-
-    public async UniTask Exit()
+    public virtual async UniTask Enter()
     {
-      await sceneLoader.UnloadAsync("Dashboard View Scene");
+      if (loaded) return;
+
+      sceneHandle = Addressables.LoadSceneAsync(sceneAsset, LoadSceneMode.Additive, activateOnLoad: true);
+      await sceneHandle.Task.AsUniTask();
+      loaded = true;
     }
 
-    public void Update()
+    public virtual async UniTask Exit()
     {
-      
+      if (!loaded) return;
+      if (!sceneHandle.IsValid()) { loaded = false; return; }
+
+      await Addressables.UnloadSceneAsync(sceneHandle).Task.AsUniTask();
+      loaded = false;
     }
+
+    public virtual void Update() { }
   }
   
-  public class LiveViewState : IState
-  {
-    private ISceneLoader sceneLoader;
-    
-    [Inject]
-    public LiveViewState(ISceneLoader sceneLoader)
-    {
-      this.sceneLoader = sceneLoader;
-    }
-    public async UniTask Enter()
-    {
-      await sceneLoader.LoadAsync("Live View Scene");
-    }
-
-    public async UniTask Exit()
-    {
-      await sceneLoader.UnloadAsync("Live View Scene");
-    }
-
-    public void Update()
-    {
-      
-    }
-  }
 }

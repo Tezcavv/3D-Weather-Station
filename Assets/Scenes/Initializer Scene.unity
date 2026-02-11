@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30580216}
-  - component: {fileID: 30580215}
   - component: {fileID: 30580217}
   m_Layer: 0
   m_Name: Application Manager
@@ -137,30 +136,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &30580215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30580214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9bf5808b7d1e0d5e81971d4a4e62ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  dashboardScene:
-    m_AssetGUID: e5fbd6eae02cffa0484320b9c1b7439d
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
-  liveViewScene:
-    m_AssetGUID: fe05bf1a8742cee29b00e1445f261bc6
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
 --- !u!4 &30580216
 Transform:
   m_ObjectHideFlags: 0
@@ -185,10 +160,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 30580214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72d04675972da3c28207c53d4efae71, type: 3}
+  m_Script: {fileID: 11500000, guid: b9bf5808b7d1e0d5e81971d4a4e62ee2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestMonoBeh
-  locationData: {fileID: 11400000, guid: 1ca89649d4e4175f39cd9185b7098191, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::ApplicationContext
+  sceneContainer:
+    <DashboardScene>k__BackingField:
+      m_AssetGUID: fe05bf1a8742cee29b00e1445f261bc6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+    <LiveScene>k__BackingField:
+      m_AssetGUID: e5fbd6eae02cffa0484320b9c1b7439d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,55 +489,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1715327469
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1715327472}
-  - component: {fileID: 1715327470}
-  m_Layer: 0
-  m_Name: Lifetime Scope Injector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1715327470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715327469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00747f5fc8ce45ceaad98191f4789551, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Scripts.ApplicationLifetimeScope
-  parentReference:
-    TypeName: 
-  autoRun: 1
-  autoInjectGameObjects: []
-  applicationManager: {fileID: 30580215}
---- !u!4 &1715327472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715327469}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -559,4 +497,3 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 30580216}
-  - {fileID: 1715327472}

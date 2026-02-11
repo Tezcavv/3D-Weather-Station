@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using VContainer;
 
@@ -6,36 +7,42 @@ namespace _Scripts.StateMachine
 {
   public interface IStateMachine
   {
-    UniTask ChangeStateAsync<TState>() where TState : IState;
+    UniTask ChangeStateAsync(StateScene newSceneType);
     void UpdateCurrentState();
+    void Init();
   }
 
+  
+  
   public class StateMachine : IStateMachine
   {
-    private StateResolver _resolver;
-    private IState _current;
-    private bool _isTransitioning;
 
-    [Inject]
-    public StateMachine(StateResolver resolver)
+    private bool _isTransitioning = false;
+    private Dictionary<StateScene, IState> sceneDictionary;
+    private IState _current;
+    
+    public StateMachine(SceneContainer sceneContainer)
     {
-      _resolver = resolver;
+      sceneDictionary = new Dictionary<StateScene, IState>();
+      sceneDictionary.Add(StateScene.DASHBOARD,new SceneState(sceneContainer.DashboardScene));
+      sceneDictionary.Add(StateScene.LIVE,new SceneState(sceneContainer.LiveScene));
+      
     }
 
-    public async UniTask ChangeStateAsync<TState>() where TState : IState
+    public void Init()
+    {
+      //enter dashboard
+    }
+
+    public async UniTask ChangeStateAsync(StateScene newSceneType)
     {
       if (_isTransitioning) return;
       _isTransitioning = true;
       
-      IState newState = _resolver.Resolve<TState>();
-      
-      if (newState == null)
-      {
-        throw new Exception("New state is null");
-      }
+      if(_current != null && _current == sceneDictionary[newSceneType]) return;
 
       if (_current != null) await _current.Exit();
-      _current = newState;
+      _current = sceneDictionary[newSceneType];
       await _current.Enter();
 
       _isTransitioning = false;
@@ -47,4 +54,11 @@ namespace _Scripts.StateMachine
       _current?.Update();
     }
   }
+}
+
+public enum StateScene
+{
+  DASHBOARD,
+  LIVE
+  
 }
