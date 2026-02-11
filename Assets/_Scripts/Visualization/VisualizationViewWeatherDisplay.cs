@@ -1,7 +1,6 @@
 using _Scripts.ScriptableObjects;
 using _Scripts.WeatherService;
 using Cysharp.Threading.Tasks;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Rendering;

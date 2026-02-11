@@ -1,7 +1,6 @@
 using System;
 using _Scripts.ScriptableObjects;
 using _Scripts.WeatherService;
-using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
