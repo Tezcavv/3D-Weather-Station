@@ -63,7 +63,7 @@ namespace _Scripts.WeatherService
 
     [JsonProperty("rain")] public string Rain { get; set; }
 
-    [JsonProperty("precipitation")] public string Precipitation { get; set; }
+    [JsonProperty("weather_code")]  public int WeatherCode { get; set; }
 
     [JsonProperty("showers")] public string Showers { get; set; }
 
@@ -84,7 +84,7 @@ namespace _Scripts.WeatherService
 
     [JsonProperty("rain")] public double Rain { get; set; }
 
-    [JsonProperty("precipitation")] public double Precipitation { get; set; }
+    [JsonProperty("weather_code")]  public int WeatherCode { get; set; }
 
     [JsonProperty("showers")] public double Showers { get; set; }
 

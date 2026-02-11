@@ -6,7 +6,7 @@ public class WeatherService
   
   public LocationData LocationData { get; set; }
   public WeatherData CurrentWeatherData { get; private set; }
-  public event Action<LocationData,WeatherData> OnChangeWeatherData = null;
+  public event Action<LocationData ,WeatherData > OnChangeWeatherData = null;
   
   private IWeatherProvider _weatherProvider;
   public WeatherService(IWeatherProvider weatherProvider)

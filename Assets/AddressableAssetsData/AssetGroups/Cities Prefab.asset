@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Cities Prefab
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Cities Prefab
+  m_GUID: 26cc06d0df6f1f7cd8106253a76dfafd
+  m_SerializeEntries:
+  - m_GUID: 39cb0c52969336fb98c99e4c706eb6ed
+    m_Address: Assets/_Prefabs/Mechanicsville City.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6292195e578b785cd821af7cb17c3a0a
+    m_Address: Assets/_Prefabs/Bologna City.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: df25524c326062c4f97b338fa3fba978, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 44fc110371ca0c4c09bfe92a8a5dac33, type: 2}
+    - {fileID: 11400000, guid: 49871cf5e416383f09db2fcdf777855b, type: 2}

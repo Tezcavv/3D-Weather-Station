@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff5235678e64479be8443b52e4e12ca, type: 3}
+  m_Name: _Weather Settings Container
+  m_EditorClassIdentifier: Assembly-CSharp::_Scripts.ScriptableObjects.WeatherCodeContainer
+  <AllWeatherCodes>k__BackingField:
+  - {fileID: 11400000, guid: f36a2975d1a1126c8b2a9a1225ce8b95, type: 2}
+  - {fileID: 11400000, guid: 858905476c980193ca845f2fc85b38dc, type: 2}
+  - {fileID: 11400000, guid: 5d97b302934edcb53be5ed4426e2a0a1, type: 2}
