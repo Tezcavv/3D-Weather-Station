@@ -5,19 +5,19 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Serialization;
 
-public class LiveViewController : MonoBehaviour
+public class VisualizationViewController : MonoBehaviour
 {
     
-  [FormerlySerializedAs("liveViewDisplay")] [SerializeField] LiveViewCityDisplay liveViewCityDisplay;
-  [SerializeField] LiveViewWeatherDisplay liveViewWeatherDisplay;
+  [FormerlySerializedAs("liveViewCityDisplay")] [FormerlySerializedAs("liveViewDisplay")] [SerializeField] VisualizationViewCityDisplay visualizationViewCityDisplay;
+  [FormerlySerializedAs("liveViewWeatherDisplay")] [SerializeField] VisualizationViewWeatherDisplay visualizationViewWeatherDisplay;
 
   private WeatherService WeatherService => ApplicationContext.Instance.WeatherService;
 
 
   private void WeatherService_OnChangeWeatherData(LocationData arg1, WeatherData arg2)
   {
-    liveViewCityDisplay.UpdateAndShowCity(arg1).Forget();
-    liveViewWeatherDisplay.UpdateAndShowWeather(arg2).Forget();
+    visualizationViewCityDisplay.UpdateAndShowCity(arg1).Forget();
+    visualizationViewWeatherDisplay.UpdateAndShowWeather(arg2).Forget();
   }
   private void Start()
   {
@@ -26,8 +26,8 @@ public class LiveViewController : MonoBehaviour
 
     if (WeatherService.CurrentWeatherData != null)
     {
-      liveViewCityDisplay.UpdateAndShowCity(WeatherService.LocationData).Forget();
-      liveViewWeatherDisplay.UpdateAndShowWeather(WeatherService.CurrentWeatherData).Forget();
+      visualizationViewCityDisplay.UpdateAndShowCity(WeatherService.LocationData).Forget();
+      visualizationViewWeatherDisplay.UpdateAndShowWeather(WeatherService.CurrentWeatherData).Forget();
     }
     
     WeatherService.OnChangeWeatherData += WeatherService_OnChangeWeatherData;

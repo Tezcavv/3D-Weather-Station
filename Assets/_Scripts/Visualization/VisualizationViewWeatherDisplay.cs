@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.Serialization;
 
-public class LiveViewWeatherDisplay : MonoBehaviour
+public class VisualizationViewWeatherDisplay : MonoBehaviour
 {
   
   [Header("Scene References For visuals")]

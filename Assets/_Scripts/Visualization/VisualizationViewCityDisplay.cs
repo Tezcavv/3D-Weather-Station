@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class LiveViewCityDisplay : MonoBehaviour
+public class VisualizationViewCityDisplay : MonoBehaviour
 {
   AsyncOperationHandle<GameObject> cityInstanceHandle;
   GameObject cityInstance;
