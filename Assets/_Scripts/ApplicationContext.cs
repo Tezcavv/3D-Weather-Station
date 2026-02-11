@@ -1,14 +1,17 @@
+using _Scripts.ScriptableObjects;
 using _Scripts.StateMachine;
 using _Scripts.WeatherService;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ApplicationContext : MonoBehaviour
 {
   public static ApplicationContext Instance { get; private set; }
 
-  [field: SerializeField] private LocationData defaultLocationData;
+  [FormerlySerializedAs("defaultLocationData")] [field: SerializeField] private LocationData DefaultLocationData;
   [field: SerializeField] public SceneContainer sceneContainer; 
+  [field:SerializeField] public WeatherSettingsContainer WeatherSettingsContainer {get; private set;}
   public WeatherService WeatherService { get; private set; }
   public IStateMachine StateMachine {get; private set;}
 
@@ -24,11 +27,11 @@ public class ApplicationContext : MonoBehaviour
       Instance = this;
       DontDestroyOnLoad(gameObject);
       WeatherService = new WeatherService(new MockWeatherProvider());
-      WeatherService.LocationData = defaultLocationData;
-   
+      WeatherService.LocationData = DefaultLocationData;
+      WeatherService.RefreshData();
       StateMachine = new SceneStateMachine(sceneContainer);
       StateMachine.Init();
-      WeatherService.RefreshData();
+      
     }
   
 

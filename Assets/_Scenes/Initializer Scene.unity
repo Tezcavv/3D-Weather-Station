@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf5808b7d1e0d5e81971d4a4e62ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ApplicationContext
-  defaultLocationData: {fileID: 11400000, guid: 1ca89649d4e4175f39cd9185b7098191, type: 2}
+  DefaultLocationData: {fileID: 11400000, guid: 1ca89649d4e4175f39cd9185b7098191, type: 2}
   sceneContainer:
     <DashboardScene>k__BackingField:
       m_AssetGUID: fe05bf1a8742cee29b00e1445f261bc6
@@ -177,6 +177,7 @@ MonoBehaviour:
       m_SubObjectType: 
       m_SubObjectGUID: 
       m_EditorAssetChanged: 0
+  <WeatherSettingsContainer>k__BackingField: {fileID: 11400000, guid: 9ee6c35ea944307efbd4fe1b8df1c39a, type: 2}
 --- !u!1 &496120345
 GameObject:
   m_ObjectHideFlags: 0

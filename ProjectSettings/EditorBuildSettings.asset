@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Initializer Scene.unity
+    path: Assets/_Scenes/Initializer Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Live View Scene.unity
+    path: Assets/_Scenes/Live View Scene.unity
     guid: e5fbd6eae02cffa0484320b9c1b7439d
   - enabled: 1
-    path: Assets/Scenes/Dashboard View Scene.unity
+    path: Assets/_Scenes/Dashboard View Scene.unity
     guid: fe05bf1a8742cee29b00e1445f261bc6
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f21ccbf37780315beb26dfdae8f37aab, type: 2}

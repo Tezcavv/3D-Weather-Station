@@ -82,12 +82,4 @@ public class LiveViewWeatherDisplay : MonoBehaviour
     }
   }
 
-#if UNITY_EDITOR
-  public WeatherSettings ws;
-  [Button]
-  public void Change()
-  {
-    UpdateParticles(ws).Forget();
-  }
-#endif
 }

@@ -22,7 +22,7 @@ namespace _Scripts.WeatherService
         "https://api.open-meteo.com/v1/forecast" +
         $"?latitude={locationData.Latitude}" +
         $"&longitude={locationData.Longitude}" +
-        "&current=temperature_2m,rain,precipitation,showers,snowfall,wind_speed_10m" +
+        "&current=temperature_2m,rain,precipitation,showers,snowfall,wind_speed_10m,weather_code" +
         "&timezone=auto";
 
       using var req = UnityWebRequest.Get(url);
@@ -63,7 +63,7 @@ namespace _Scripts.WeatherService
 
     [JsonProperty("rain")] public string Rain { get; set; }
 
-    [JsonProperty("weather_code")]  public int WeatherCode { get; set; }
+    [JsonProperty("weather_code")]  public string WeatherCode { get; set; }
 
     [JsonProperty("showers")] public string Showers { get; set; }
 

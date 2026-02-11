@@ -8,12 +8,12 @@ using VContainer;
 public class DashboardUI : MonoBehaviour
 {
    [SerializeField] public List<LocationButton> locationButtons;
-   [SerializeField] public Button changeViewButton;
+
 
    
    private void RegisterButtonEvents()
    {
-      changeViewButton.onClick.AddListener(ChangeState);
+     
       foreach (var locationButton in locationButtons)
       {
          locationButton.OnClick += (UpdateLocation);
@@ -28,17 +28,12 @@ public class DashboardUI : MonoBehaviour
 
    private void UnregisterButtonEvents()
    {
-      changeViewButton.onClick.RemoveAllListeners();
+  
       foreach (var locationButton in locationButtons)
       {
          if(locationButton != null)
             locationButton.OnClick -= (UpdateLocation);
       }
-   }
-
-   private async void ChangeState()
-   {
-     await ApplicationContext.Instance.StateMachine.ChangeStateAsync(SceneType.LIVE);
    }
 
 
