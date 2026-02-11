@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b4d73acb13ddc17a24cb8fbbc97aff, type: 3}
   m_Name: Mechanicsville
   m_EditorClassIdentifier: Assembly-CSharp::LocationData
+  <Name>k__BackingField: Mechanicsville
   <Latitude>k__BackingField: 37.36
   <Longitude>k__BackingField: -22.2

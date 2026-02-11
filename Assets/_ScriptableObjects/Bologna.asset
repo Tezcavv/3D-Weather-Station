@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b4d73acb13ddc17a24cb8fbbc97aff, type: 3}
   m_Name: Bologna
   m_EditorClassIdentifier: Assembly-CSharp::LocationData
+  <Name>k__BackingField: Bologna
   <Latitude>k__BackingField: 44.29
   <Longitude>k__BackingField: 11.2

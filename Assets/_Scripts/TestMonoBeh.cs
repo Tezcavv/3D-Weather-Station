@@ -14,13 +14,13 @@ public class TestMonoBeh : MonoBehaviour
 
   private void Start()
   {
-    Run().Forget();
+    
   }
 
   [Button]
   private async UniTask Run()
   {
-    var data = await new MockWeatherProvider().GetWeatherData(locationData, CancellationToken.None);
+    var data = await new MockWeatherProvider().GetWeatherData(locationData);
     Debug.Log($"Temp: {data.CurrentWeather.Temperature2m}°C, Wind: {data.CurrentWeather.WindSpeed10m} km/h");
    
   }

@@ -8,15 +8,16 @@ namespace _Scripts.WeatherService
 {
   public interface IWeatherProvider
   {
-    UniTask<WeatherData> GetWeatherData( LocationData locationData, CancellationToken ct);
+    UniTask<WeatherData> GetWeatherData( LocationData locationData, CancellationToken ct = default);
   }
 
   public class MockWeatherProvider : IWeatherProvider
   {
+    public LocationData LocationData { get; set; }
+
     public async UniTask<WeatherData> GetWeatherData(LocationData locationData,
-      CancellationToken ct)
+      CancellationToken ct = default)
     {
-      // Tip: timezone=auto is often useful so the "time" matches location
       string url =
         "https://api.open-meteo.com/v1/forecast" +
         $"?latitude={locationData.Latitude}" +

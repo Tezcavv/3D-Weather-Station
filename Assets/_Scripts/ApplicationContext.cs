@@ -1,15 +1,16 @@
-using System;
 using _Scripts.StateMachine;
+using _Scripts.WeatherService;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 public class ApplicationContext : MonoBehaviour
 {
   public static ApplicationContext Instance { get; private set; }
 
+  [field: SerializeField] private LocationData defaultLocationData;
   [field: SerializeField] public SceneContainer sceneContainer; 
-  
-  IStateMachine stateMachine;
+  public WeatherService WeatherService { get; private set; }
+  public IStateMachine StateMachine {get; private set;}
 
 
     private void Awake()
@@ -22,32 +23,29 @@ public class ApplicationContext : MonoBehaviour
 
       Instance = this;
       DontDestroyOnLoad(gameObject);
-      stateMachine = new StateMachine(sceneContainer);
-      stateMachine.Init();
+      WeatherService = new WeatherService(new MockWeatherProvider());
+      WeatherService.LocationData = defaultLocationData;
+   
+      StateMachine = new SceneStateMachine(sceneContainer);
+      StateMachine.Init();
+      WeatherService.RefreshData();
     }
   
 
 
   public void Update()
   {
-    stateMachine.UpdateCurrentState();
+    StateMachine.UpdateCurrentState();
     
      if (Input.GetKeyDown(KeyCode.S))
      {
        Debug.Log("Pressed");
-         stateMachine.ChangeStateAsync(StateScene.LIVE);
+         StateMachine.ChangeStateAsync(SceneType.LIVE);
      }
     
      if (Input.GetKeyDown(KeyCode.A))
      {
-         stateMachine.ChangeStateAsync(StateScene.DASHBOARD);
+         StateMachine.ChangeStateAsync(SceneType.DASHBOARD);
      }
   }
-}
-
-[Serializable]
-public class SceneContainer
-{
-  [field: SerializeField] public AssetReference DashboardScene { get; private set; }
-  [field: SerializeField] public AssetReference LiveScene { get; private set; }
 }

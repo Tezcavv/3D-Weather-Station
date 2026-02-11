@@ -7,20 +7,20 @@ using VContainer;
 
 namespace _Scripts.StateMachine
 {
-  public interface IState
+  public interface ISceneState
   {
     UniTask Enter();
     UniTask Exit();
     void Update();
   }
   
-  public class SceneState : IState
+  public class SceneSceneState : ISceneState
   {
     readonly AssetReference sceneAsset;
     AsyncOperationHandle<SceneInstance> sceneHandle;
     bool loaded;
 
-    public SceneState(AssetReference sceneAsset)
+    public SceneSceneState(AssetReference sceneAsset)
     {
       this.sceneAsset = sceneAsset;
       loaded = false;
