@@ -10,6 +10,7 @@ The project is runnable on GitHub Pages on https://tezcavv.github.io/3D-Weather-
   - open the folder trought "Add" from Unity Hub
   - Open the scene asset "Initializer Scene"
   - enter Play Mode
+  - Randomize currently allows for 3 weather conditions: Clear, Rain, Snow
 
 ## External Libraries / Packages
  - UniTask
@@ -17,5 +18,6 @@ The project is runnable on GitHub Pages on https://tezcavv.github.io/3D-Weather-
  - Newtonsoft Json / Json.net
 
 ## Known Bug
- - When swapping from one view to another the data doesn't automatically refresh
+ - In the GitHub Pages Build swapping view doesn´t automatically update some data until a manual refresh is called
+   - any Weather/City button will correctly trigger the update
    
