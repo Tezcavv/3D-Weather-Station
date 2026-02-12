@@ -18,6 +18,6 @@ The project is runnable on GitHub Pages on https://tezcavv.github.io/3D-Weather-
  - Newtonsoft Json / Json.net
 
 ## Known Bug
- - In the GitHub Pages Build swapping view doesn´t automatically update some data until a manual refresh is called
-   - any Weather/City button will correctly trigger the update
+ - In the GitHub Pages Build swapping view doesn´t automatically update/spawn some objects until a new Weather call is made
+   - any Weather button should correctly trigger the missed update/spawn
    
