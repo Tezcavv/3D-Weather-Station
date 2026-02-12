@@ -8,11 +8,14 @@ The project is runnable on GitHub Pages on https://tezcavv.github.io/3D-Weather-
   - Download/Clone the project
   - Ensure Unity Hub and the latest Unity LTS version are installed (Unity Hub will prompt to install the right one if missing)
   - open the folder trought "Add" from Unity Hub
-  - Open the scene asset "Initialize Scene"
+  - Open the scene asset "Initializer Scene"
   - enter Play Mode
 
 ## External Libraries / Packages
  - UniTask
  - Vcontainer
  - Newtonsoft Json / Json.net
+
+## Known Bug
+ - When swapping from one view to another the data doesn't automatically refresh
    
