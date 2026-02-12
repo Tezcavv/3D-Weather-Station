@@ -55,7 +55,7 @@ public class DashboardDataDisplay : MonoBehaviour
       weatherTypeTxt.text = $"{weatherSettings.WeatherTypeName}";
     }
     
-    private void Awake()
+    private void Start()
     {
       if (WeatherService == null) return;
 

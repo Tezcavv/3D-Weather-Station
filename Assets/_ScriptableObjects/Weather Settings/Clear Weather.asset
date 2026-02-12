@@ -21,6 +21,6 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   <WeatherTypeName>k__BackingField: Clear
   <Codes>k__BackingField: 00000000010000000200000003000000
-  <LightColor>k__BackingField: {r: 1, g: 0.94509804, b: 0.8392157, a: 1}
-  <LightIntensity>k__BackingField: 1.23
+  <LightColor>k__BackingField: {r: 0.91725016, g: 0.859891, b: 0.64537036, a: 1}
+  <LightIntensity>k__BackingField: 3.98
   <VolumeProfile>k__BackingField: {fileID: 11400000, guid: 80829312ab8de7cb4bcdd113efdb569f, type: 2}
